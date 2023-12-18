@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.11.0 on darwin)" generated="20231219 00:04:54.959" rpa="false" schemaversion="3">
+<suite id="s1" name="To Do List" source="/Users/klungdoppio/Desktop/bluepi_automation_test/testcase/to_do_list.robot">
+<test id="s1-t1" name="TC-01 Verify that user can complete their task" line="7">
+<kw name="Open website" library="common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231219 00:04:55.042" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20231219 00:04:55.042" endtime="20231219 00:04:58.170"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:55.042" endtime="20231219 00:04:58.171"/>
+</kw>
+<kw name="Input task" library="add_item_page">
+<arg>Test01!</arg>
+<kw name="Input text when ready" library="common">
+<arg>${txt_add_new_task}</arg>
+<arg>${new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.172" endtime="20231219 00:04:58.191"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.191" level="INFO">Typing text 'Test01!' into text field 'new-task'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.191" endtime="20231219 00:04:58.283"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.171" endtime="20231219 00:04:58.284"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${to_do_task}</var>
+<arg>${new_task}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231219 00:04:58.284" level="INFO">${to_do_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:04:58.284" endtime="20231219 00:04:58.284"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231219 00:04:58.284" level="INFO">${to_do_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:04:58.284" endtime="20231219 00:04:58.284"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.171" endtime="20231219 00:04:58.284"/>
+</kw>
+<kw name="Click add task" library="add_item_page">
+<kw name="Click element when ready" library="common">
+<arg>${btn_add_new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.284" endtime="20231219 00:04:58.295"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.295" level="INFO">Clicking element '//button[i[@class='material-icons']]'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.295" endtime="20231219 00:04:58.314"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.284" endtime="20231219 00:04:58.314"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.284" endtime="20231219 00:04:58.314"/>
+</kw>
+<kw name="Go to to do tasks tab" library="common">
+<kw name="Click element when ready" library="common">
+<arg>${lbl_to_do_tasks_tab}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.314" endtime="20231219 00:04:58.324"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.324" level="INFO">Clicking element '//a[text()='To-Do Tasks']'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.324" endtime="20231219 00:04:58.345"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.314" endtime="20231219 00:04:58.346"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.314" endtime="20231219 00:04:58.346"/>
+</kw>
+<kw name="Verify that new task is added" library="add_item_page">
+<arg>1</arg>
+<doc>This keyword receive 1 argument as number in test case level to replace in
+the task locator that located in TO-DO TASKS tab by using keyword Replace String
+and contain a new locator in ${current_task_locator}</doc>
+<kw name="Replace String" library="String">
+<var>${current_task_locator}</var>
+<arg>${lbl_doing_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:04:58.346" level="INFO">${current_task_locator} = //span[@id='text-1']</msg>
+<status status="PASS" starttime="20231219 00:04:58.346" endtime="20231219 00:04:58.346"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${inprogress_task}</var>
+<arg>${current_task_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.360" level="INFO">${inprogress_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:04:58.346" endtime="20231219 00:04:58.360"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<arg>${inprogress_task}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231219 00:04:58.360" endtime="20231219 00:04:58.360"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.346" endtime="20231219 00:04:58.360"/>
+</kw>
+<kw name="Finish task" library="to_do_task_page">
+<arg>1</arg>
+<kw name="Replace String" library="String">
+<var>${target_doing_task_locator}</var>
+<arg>${lbl_doing_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:04:58.360" level="INFO">${target_doing_task_locator} = //span[@id='text-1']</msg>
+<status status="PASS" starttime="20231219 00:04:58.360" endtime="20231219 00:04:58.360"/>
+</kw>
+<kw name="Click element when ready" library="common">
+<arg>${target_doing_task_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.360" endtime="20231219 00:04:58.367"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.368" level="INFO">Clicking element '//span[@id='text-1']'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.367" endtime="20231219 00:04:58.384"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.360" endtime="20231219 00:04:58.384"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.360" endtime="20231219 00:04:58.384"/>
+</kw>
+<kw name="Verify that the task is complted" library="to_do_task_page">
+<kw name="Go to completed tab" library="common">
+<kw name="Click element when ready" library="common">
+<arg>${lbl_completed_tab}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.385" endtime="20231219 00:04:58.396"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.396" level="INFO">Clicking element '//a[text()='Completed']'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.396" endtime="20231219 00:04:58.413"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.384" endtime="20231219 00:04:58.413"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.384" endtime="20231219 00:04:58.413"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${completed_task}</var>
+<arg>${lbl_complted_task}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.423" level="INFO">${completed_task} = done</msg>
+<status status="PASS" starttime="20231219 00:04:58.413" endtime="20231219 00:04:58.423"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${completed_task}</arg>
+<arg>done</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231219 00:04:58.423" endtime="20231219 00:04:58.423"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.384" endtime="20231219 00:04:58.423"/>
+</kw>
+<kw name="Delete complted task" library="complete_page">
+<arg>1</arg>
+<kw name="Replace String" library="String">
+<var>${complted_task_locator}</var>
+<arg>${btn_delete_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:04:58.424" level="INFO">${complted_task_locator} = //div[@id='completed']//button[@id='1']</msg>
+<status status="PASS" starttime="20231219 00:04:58.423" endtime="20231219 00:04:58.424"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${completed_task}</var>
+<arg>${complted_task_locator}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231219 00:04:58.424" level="INFO">${completed_task} = //div[@id='completed']//button[@id='1']</msg>
+<status status="PASS" starttime="20231219 00:04:58.424" endtime="20231219 00:04:58.424"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${completed_task}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231219 00:04:58.424" level="INFO">${completed_task} = //div[@id='completed']//button[@id='1']</msg>
+<status status="PASS" starttime="20231219 00:04:58.424" endtime="20231219 00:04:58.424"/>
+</kw>
+<kw name="Click element when ready" library="common">
+<arg>${complted_task_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:04:58.424" endtime="20231219 00:04:58.433"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:04:58.434" level="INFO">Clicking element '//div[@id='completed']//button[@id='1']'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.433" endtime="20231219 00:04:58.450"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.424" endtime="20231219 00:04:58.451"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.423" endtime="20231219 00:04:58.451"/>
+</kw>
+<kw name="Verify that complted task has deleted" library="complete_page">
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${completed_task}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20231219 00:04:58.462" level="INFO">Current page does not contain text '//div[@id='completed']//button[@id='1']'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.451" endtime="20231219 00:04:58.462"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.451" endtime="20231219 00:04:58.462"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231219 00:04:58.463" endtime="20231219 00:04:58.533"/>
+</kw>
+<doc>This number in the test case is represent task number (not lees than 1).</doc>
+<status status="PASS" starttime="20231219 00:04:55.042" endtime="20231219 00:04:58.533"/>
+</test>
+<test id="s1-t2" name="TC-02 Verify that user can delete task from to do tasks page" line="18">
+<kw name="Open website" library="common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231219 00:04:58.534" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20231219 00:04:58.533" endtime="20231219 00:05:00.852"/>
+</kw>
+<status status="PASS" starttime="20231219 00:04:58.533" endtime="20231219 00:05:00.852"/>
+</kw>
+<kw name="Input task" library="add_item_page">
+<arg>Test01!</arg>
+<kw name="Input text when ready" library="common">
+<arg>${txt_add_new_task}</arg>
+<arg>${new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:00.853" endtime="20231219 00:05:00.875"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:00.876" level="INFO">Typing text 'Test01!' into text field 'new-task'.</msg>
+<status status="PASS" starttime="20231219 00:05:00.875" endtime="20231219 00:05:00.971"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:00.853" endtime="20231219 00:05:00.971"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${to_do_task}</var>
+<arg>${new_task}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231219 00:05:00.972" level="INFO">${to_do_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:05:00.971" endtime="20231219 00:05:00.972"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231219 00:05:00.972" level="INFO">${to_do_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:05:00.972" endtime="20231219 00:05:00.972"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:00.852" endtime="20231219 00:05:00.972"/>
+</kw>
+<kw name="Click add task" library="add_item_page">
+<kw name="Click element when ready" library="common">
+<arg>${btn_add_new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:00.972" endtime="20231219 00:05:00.984"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:00.984" level="INFO">Clicking element '//button[i[@class='material-icons']]'.</msg>
+<status status="PASS" starttime="20231219 00:05:00.984" endtime="20231219 00:05:01.002"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:00.972" endtime="20231219 00:05:01.002"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:00.972" endtime="20231219 00:05:01.002"/>
+</kw>
+<kw name="Go to to do tasks tab" library="common">
+<kw name="Click element when ready" library="common">
+<arg>${lbl_to_do_tasks_tab}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.003" endtime="20231219 00:05:01.013"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.013" level="INFO">Clicking element '//a[text()='To-Do Tasks']'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.013" endtime="20231219 00:05:01.034"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.003" endtime="20231219 00:05:01.034"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.002" endtime="20231219 00:05:01.034"/>
+</kw>
+<kw name="Verify that new task is added" library="add_item_page">
+<arg>1</arg>
+<doc>This keyword receive 1 argument as number in test case level to replace in
+the task locator that located in TO-DO TASKS tab by using keyword Replace String
+and contain a new locator in ${current_task_locator}</doc>
+<kw name="Replace String" library="String">
+<var>${current_task_locator}</var>
+<arg>${lbl_doing_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:05:01.034" level="INFO">${current_task_locator} = //span[@id='text-1']</msg>
+<status status="PASS" starttime="20231219 00:05:01.034" endtime="20231219 00:05:01.034"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${inprogress_task}</var>
+<arg>${current_task_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.047" level="INFO">${inprogress_task} = Test01!</msg>
+<status status="PASS" starttime="20231219 00:05:01.034" endtime="20231219 00:05:01.047"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<arg>${inprogress_task}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231219 00:05:01.047" endtime="20231219 00:05:01.047"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.034" endtime="20231219 00:05:01.047"/>
+</kw>
+<kw name="Go to add item tab" library="common">
+<kw name="Click element when ready" library="common">
+<arg>${lbl_add_item_tab}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.048" endtime="20231219 00:05:01.057"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.057" level="INFO">Clicking element '//a[text()='Add Item']'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.057" endtime="20231219 00:05:01.082"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.048" endtime="20231219 00:05:01.082"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.048" endtime="20231219 00:05:01.082"/>
+</kw>
+<kw name="Input task" library="add_item_page">
+<arg>Test02!</arg>
+<kw name="Input text when ready" library="common">
+<arg>${txt_add_new_task}</arg>
+<arg>${new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.082" endtime="20231219 00:05:01.089"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.089" level="INFO">Typing text 'Test02!' into text field 'new-task'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.089" endtime="20231219 00:05:01.121"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.082" endtime="20231219 00:05:01.121"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${to_do_task}</var>
+<arg>${new_task}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231219 00:05:01.122" level="INFO">${to_do_task} = Test02!</msg>
+<status status="PASS" starttime="20231219 00:05:01.121" endtime="20231219 00:05:01.122"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231219 00:05:01.122" level="INFO">${to_do_task} = Test02!</msg>
+<status status="PASS" starttime="20231219 00:05:01.122" endtime="20231219 00:05:01.122"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.082" endtime="20231219 00:05:01.122"/>
+</kw>
+<kw name="Click add task" library="add_item_page">
+<kw name="Click element when ready" library="common">
+<arg>${btn_add_new_task}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.122" endtime="20231219 00:05:01.129"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.129" level="INFO">Clicking element '//button[i[@class='material-icons']]'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.129" endtime="20231219 00:05:01.146"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.122" endtime="20231219 00:05:01.146"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.122" endtime="20231219 00:05:01.146"/>
+</kw>
+<kw name="Go to to do tasks tab" library="common">
+<kw name="Click element when ready" library="common">
+<arg>${lbl_to_do_tasks_tab}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.146" endtime="20231219 00:05:01.153"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.153" level="INFO">Clicking element '//a[text()='To-Do Tasks']'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.153" endtime="20231219 00:05:01.171"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.146" endtime="20231219 00:05:01.171"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.146" endtime="20231219 00:05:01.171"/>
+</kw>
+<kw name="Verify that new task is added" library="add_item_page">
+<arg>2</arg>
+<doc>This keyword receive 1 argument as number in test case level to replace in
+the task locator that located in TO-DO TASKS tab by using keyword Replace String
+and contain a new locator in ${current_task_locator}</doc>
+<kw name="Replace String" library="String">
+<var>${current_task_locator}</var>
+<arg>${lbl_doing_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:05:01.171" level="INFO">${current_task_locator} = //span[@id='text-2']</msg>
+<status status="PASS" starttime="20231219 00:05:01.171" endtime="20231219 00:05:01.171"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${inprogress_task}</var>
+<arg>${current_task_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.180" level="INFO">${inprogress_task} = Test02!</msg>
+<status status="PASS" starttime="20231219 00:05:01.171" endtime="20231219 00:05:01.180"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${to_do_task}</arg>
+<arg>${inprogress_task}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231219 00:05:01.181" endtime="20231219 00:05:01.181"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.171" endtime="20231219 00:05:01.181"/>
+</kw>
+<kw name="Cancel task" library="to_do_task_page">
+<arg>2</arg>
+<kw name="Replace String" library="String">
+<var>${target_doing_task_locator}</var>
+<arg>${btn_cancel_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:05:01.181" level="INFO">${target_doing_task_locator} = //ul[@id='incomplete-tasks']//button[@id='2']</msg>
+<status status="PASS" starttime="20231219 00:05:01.181" endtime="20231219 00:05:01.181"/>
+</kw>
+<kw name="Click element when ready" library="common">
+<arg>${target_doing_task_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.181" endtime="20231219 00:05:01.190"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.190" level="INFO">Clicking element '//ul[@id='incomplete-tasks']//button[@id='2']'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.190" endtime="20231219 00:05:01.210"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.181" endtime="20231219 00:05:01.210"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.181" endtime="20231219 00:05:01.210"/>
+</kw>
+<kw name="Cancel task" library="to_do_task_page">
+<arg>1</arg>
+<kw name="Replace String" library="String">
+<var>${target_doing_task_locator}</var>
+<arg>${btn_cancel_task}</arg>
+<arg>@#task_number@#</arg>
+<arg>${task_number}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231219 00:05:01.210" level="INFO">${target_doing_task_locator} = //ul[@id='incomplete-tasks']//button[@id='1']</msg>
+<status status="PASS" starttime="20231219 00:05:01.210" endtime="20231219 00:05:01.210"/>
+</kw>
+<kw name="Click element when ready" library="common">
+<arg>${target_doing_task_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 00:05:01.210" endtime="20231219 00:05:01.219"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 00:05:01.219" level="INFO">Clicking element '//ul[@id='incomplete-tasks']//button[@id='1']'.</msg>
+<status status="PASS" starttime="20231219 00:05:01.219" endtime="20231219 00:05:01.238"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.210" endtime="20231219 00:05:01.238"/>
+</kw>
+<status status="PASS" starttime="20231219 00:05:01.210" endtime="20231219 00:05:01.238"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231219 00:05:01.239" endtime="20231219 00:05:01.304"/>
+</kw>
+<doc>This number in the test case is represent task number (not lees than 1).</doc>
+<status status="PASS" starttime="20231219 00:04:58.533" endtime="20231219 00:05:01.304"/>
+</test>
+<status status="PASS" starttime="20231219 00:04:54.959" endtime="20231219 00:05:01.304"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="To Do List">To Do List</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
